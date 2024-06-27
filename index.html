@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almanaque</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header class="text-bg-primary text-center p-5">
+        <h1>¡Agrega tu nueva Planta!</h1>
+    </header>
+    <main class="container mt-3">
+        <div class="row">
+            <div class="col-md-4">
+                <form id="formPlanta" class="card">
+                    <div class="card-header">
+                        <h5>Ingresa los datos</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="nombre">Nombre de tu nueva planta</label>
+                            <input type="text" id="nombre" name="nombre" class="form-control" onblur="verificar(this.id)">
+                            <div id="e-nombre"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label>¿Qué función cumple tu Planta?</label><br>
+                            <input class="form-check-input" type="radio" id="ataque" name="tipo" value="ataque">
+                            <label for="ataque">Ataque</label>
+                            <input class="form-check-input" type="radio" id="genera-soles" name="tipo" value="genera-soles">
+                            <label for="genera-soles">Genera soles</label>
+                            <input class="form-check-input" type="radio" id="support" name="tipo" value="support">
+                            <label for="support">Support</label>
+                            <input class="form-check-input" type="radio" id="defensa" name="tipo" value="defensa">
+                            <label for="defensa">Defensa</label>
+                            <input class="form-check-input" type="radio" id="un-uso" name="tipo" value="un-uso">
+                            <label for="un-uso">Un uso</label>
+                            <div id="info-input-tipo"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion">Dale una pequeña descripción a tu planta</label>
+                            <input type="text" id="descripcion" name="descripcion" class="form-control" onblur="verificar(this.id)">
+                            <div id="e-descripcion"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha">Fecha adición</label>
+                            <input type="date" id="fecha" name="fecha" class="form-control" onblur="verificar(this.id)">
+                            <div id="e-fecha"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Unota">Agregale una nota de utilidad a tu nueva planta</label>
+                            <input type="text" id="Unota" name="Unota" class="form-control" onblur="verificar(this.id)">
+                            <div id="e-Unota"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="alcance">Rango de alcance de tu Planta</label>
+                            <input type="text" id="alcance" name="alcance" class="form-control" onblur="verificar(this.id)">
+                            <div id="e-alcance"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="costo">Costo de tu Planta</label>
+                            <input class="form-control" type="number" id="costo" name="costo" step="25" min="0">
+                            <div id="e-costo"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <input type="button" value="Limpiar" onclick="limpiar()" class="btn btn-info w-25">
+                        <input type="button" id="btnGuardar" value="Guardar" class="btn btn-success w-25">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Función</th>
+                                <th>Descripción</th>
+                                <th>Fecha adición</th>
+                                <th>Nota útil</th>
+                                <th>Alcance</th>
+                                <th>Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenido"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="helper.js"></script>
+    <script src="funciones.js" type="module"></script>
+</body>
+</html>
